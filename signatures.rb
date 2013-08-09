@@ -1,4 +1,4 @@
-$sigs = {
+SIGN = {
      "JP2 (Picture) Desc: JPEG2000 image files"=>"00 00 00 0C 6A 50 20 20",
      "3GP (Multimedia) Desc: 3GPP multimedia files"=>"00 00 00 14 66 74 79 70",
      "MP4 (Multimedia) Desc: MPEG-4 v1"=>"00 00 00 14 66 74 79 70 69 73 6F 6D",
