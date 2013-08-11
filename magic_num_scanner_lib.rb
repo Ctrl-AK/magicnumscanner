@@ -91,7 +91,7 @@ class MagicNumScanner
   def generate_html_report(output_html_file_location="output.html")
      File.open(output_html_file_location, "w+") do |f|
           output=""
-          @reported_signatures.each { |s| references="";s[:ref].each{ |r| references+="<a href='#{r}'>#{r}</a></br>"};output+="<li>Found: #{s[:filetype]} | Magic: #{s[:signature]} <br/>More info:<div class='references'ref>#{references}</div></li>"  }
+          @reported_signatures.each { |s| references="";s[:ref].each{ |r| references+="<a href='#{r}'>#{r}</a></br>"};output+="<li>Found: #{s[:filetype]} | Magic: #{s[:signature]} <br/><div class='references'ref>More info:<br/>#{references}</div></li>"  }
           f.write(TEMPLATE.gsub("<<TITLE>>","Magic number scanner").gsub("<<REPORT>>",output))
      end
   end
