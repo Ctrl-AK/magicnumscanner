@@ -17,6 +17,7 @@
 # If you find any bugs, let me know. Thanks. ]¬)
 
 require './signatures'
+require  './templates'
 
 class MagicNumScanner
 
@@ -40,25 +41,17 @@ class MagicNumScanner
   end  
 
   def sig_check
-    SIGN.each do |filetype, signature|
-      signature = signature.downcase.split(/\s/)
-      if @virtual_file_mem[0..signature.size-1] == signature
-        @reported_signatures<<generate_reported_object(filetype, signature)
-      end
-    end
-    @reported_signatures
+    SIGN.each { |filetype, signature| if @virtual_file_mem[0..signature.downcase.split(/\s/).size-1] == signature.downcase.split(/\s/) then @reported_signatures<<generate_reported_object(filetype, signature) end }
   end
 
   def action!(file)
      outcome=[]
+     print COPYLEFT
      if file.nil?
-       print "\n<MagicNumber Scanner v1.0> by chr1x (http://chr1x.izpwning.me)\n\n"
-       print "\tUSE: #{$0} <input file>\n\n"
+       print USAGE
        exit
      else
-       print "\n<MagicNumber Scanner v1.0> by chr1x (http://chr1x.izpwning.me)\n\n"
-       puts "\t[*] Starting Magic-number scan on... <#{file}>\n"
-       
+       print INIT_TEXT+"<#{file}>\n\n"
        begin
          binfile = File.open(file, "rb") # opening file read + binary
 
@@ -80,13 +73,10 @@ class MagicNumScanner
      outcome
   end
 
-
-
   def report
      str=""
      @reported_signatures.each do |s|
-          str+="\nFound: #{s[:filetype]} | Magic: #{s[:signature]}\n"
-          str+="More info: "
+          str+="\nFound: #{s[:filetype]} | Magic: #{s[:signature]}\nMore info: "
           s[:ref].each{ |r| str+="\n\t"+r}
           str+="\n"
      end
@@ -95,8 +85,15 @@ class MagicNumScanner
 
   def clean_virtual_file_vars
          @virtual_file.clear
-         @virtual_file_mem.clear              
+         @virtual_file_mem.clear 
   end
 
+  def generate_html_report(output_html_file_location="output.html")
+     File.open(output_html_file_location, "w+") do |f|
+          output=""
+          @reported_signatures.each { |s| references="";s[:ref].each{ |r| references+="<a href='#{r}'>#{r}</a></br>"};output+="<li>Found: #{s[:filetype]} | Magic: #{s[:signature]} <br/>More info:<div class='references'ref>#{references}</div></li>"  }
+          f.write(TEMPLATE.gsub("<<TITLE>>","Magic number scanner").gsub("<<REPORT>>",output))
+     end
+  end
 end
 
