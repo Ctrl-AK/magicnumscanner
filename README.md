@@ -12,8 +12,9 @@ The MagicNumber Scanner is a tool written using the Ruby language that identifie
 
 Features:
 ========
-- Magic-number scanning based on a signature list.
-- Automatically generates a list of references with the identified extensions (e.g. http://filext.com/file-extension/EXE)
+- Magic-number scanning based on a simple signature list.
+- Automatically generates a URL with the identified extension pointing to the http://filext.com/ website. 
+  (e.g. http://filext.com/file-extension/EXE)
 
 CANGELOG
 ========
