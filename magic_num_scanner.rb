@@ -21,4 +21,7 @@ require './magic_num_scanner_lib'
 mns=MagicNumScanner.new()
 mns.action!(ARGV[0])
 print mns.report+"\n\n"
+if !ARGV[1].nil?
+	mns.generate_html_report(ARGV[1])
+end
 mns.clean_virtual_file_vars
