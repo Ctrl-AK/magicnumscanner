@@ -16,7 +16,7 @@ Features:
 - Automatically generates a URL with the identified extension pointing to the http://filext.com/ website. 
   (e.g. http://filext.com/file-extension/EXE)
 
-CANGELOG
+CHANGELOG
 ========
 v1.0
 - Initial version
