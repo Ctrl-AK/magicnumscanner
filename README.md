@@ -1,18 +1,37 @@
-MagicNumber Scanner v1.0 
-================================
-Christian Navarrete (chr1x@izpwning.me) / 2013
+MagicNumber Scanner v1.1.0
+========
+Christian Navarrete (chr1x@izpwning.me) 
 Website: http://chr1x.izpwning.me / Tw: @chr1x
 
+Christian Yerena (preth00nker@gmail.com) 
+website: http://preth00nker.com Tw: @preth00nker
+
+Description
+========
+The MagicNumber Scanner is a tool written using the Ruby language that identifies the file type based on its "magic number" and can generate a HTML report that contains links that points to a website to get detailed information about the identified file.
+
 Features:
-- Magic-number scanning based on a simple signature list.
-- Automatically generates a URL with the identified extension pointing to the http://filext.com/ website. 
-  (e.g. http://filext.com/file-extension/EXE)
+========
+- Magic-number scanning based on a signature list.
+- Automatically generates a list of references with the identified extensions (e.g. http://filext.com/file-extension/EXE)
+
+CANGELOG
+========
+v1.0
+- Initial version
+
+v1.1.0
+- Converting to class code
+- Refactoring code
+- Adding rspec test files
+- Adding HTML capability <optionally second argument>
 
 TODO:
-- Generation of HTML report that shows more information about the file extension.
+========
+- Make the library a Gem
+- Make a msf module
 
 NOTE: signatures taken from the website of Gary C. Kessler - http://www.garykessler.net/
 
-This is a proof of concept tool to show how to deal with binary data using the Ruby language.
+If you find any bugs, let us know. Thanks. ]¬)
 
-If you find any bugs, let me know. Thanks. ]¬)

@@ -1,4 +1,4 @@
-	COPYLEFT="\n<MagicNumber Scanner v1.0> by chr1x (http://chr1x.izpwning.me)\n\n";
+	COPYLEFT="\n<MagicNumber Scanner v1.1.0> by chr1x (http://chr1x.izpwning.me) and preth00nker (preth00nker@gmail.com) \n\n";
 	USAGE="\tUSE: #{$0} <input file> <report.html>\n\n";
 	INIT_TEXT="\t[*] Starting Magic-number scan on... ";
 	TEMPLATE=<<-CONTENT
