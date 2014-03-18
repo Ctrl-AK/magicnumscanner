@@ -69,12 +69,15 @@ class MagicNumScanner
     }
     bytes_for_sig.delete("??")  # cleaning all the "??" chars from the sig array.
     
+    #puts $packer_name
+    
     if equality_counter == bytes_for_sig
       puts "--"
       puts "Packer/Protector <FOUND> => #{$packer_name}"
     end
     bytes_for_sig.clear
     bytes_for_file.clear
+    #sleep(2)
     }      
   end
 
